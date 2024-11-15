@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">{{ recipe.title }}</h2>
+
+
+    <div class="card p-4 mb-4">
+        <h4 class="mb-3">Ingredients</h4>
+        <p>{{ recipe.ingredients }}</p>
+        <hr>
+        <h4 class="mb-3">Instructions</h4>
+        <p>{{ recipe.instructions }}</p>
+    </div>
+
+
+    <div class="d-flex justify-content-between">
+        <a href="{% url 'recipe_update' recipe.id %}" class="btn btn-warning btn-lg">Edit</a>
+        <a href="{% url 'recipe_delete' recipe.id %}" class="btn btn-danger btn-lg">Delete</a>
+        <a href="{% url 'recipe_list' %}" class="btn btn-secondary btn-lg">Back to List</a>
+    </div>
+</div>
+{% endblock %}
